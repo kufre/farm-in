@@ -1,0 +1,79 @@
+<div class="main_content_iner ">
+    <div class="container-fluid p-0">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="QA_section">
+                    <div class="white_box_tittle list_header">
+                        <h4>Setups / Roles</h4>
+                        <div class="box_right d-flex lms_block">
+                            <div class="add_button ml-10">
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                Add New
+                              </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="white_box mb_30 collapse" id="collapseExample">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Role Name </label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="role name">
+                            </div>
+                            <div class="form-group">
+                                <div class="add_button">
+                                    <button class="btn btn-primary" class="btn_1">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="white_box mb_30">
+                        <div class="box_header ">
+                            <div class="main-title">
+                                <h3 class="mb-0">Role List</h3>
+                            </div>
+                        </div>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% locals.roles.records.forEach(function(role, index){%>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= index+1 %>
+                                        </th>
+                                        <td>
+                                            <%= role.role_name %>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Edit</button>
+                                            <button type="button" class="btn btn-secondary">Assign Permission</button>
+                                            <button type="button" class="btn btn-secondary">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <% });  %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+model Farming {
+  farming_id       String       @id @default(uuid())
+  farming_name     String
+  farming_duration String
+  is_deleted       Boolean      @default(false)
+  date_created     DateTime     @default(now())
+  date_updated     DateTime     @updatedAt
+  investments      Investment[]
+}

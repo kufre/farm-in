@@ -1,0 +1,20 @@
+model Investment {
+  investment_id     String   @id @default(uuid())
+  farming_id        String
+  category          String
+  location          String
+  season            String
+  duration          String
+  unit_price        String
+  unit_price_string String
+  unit_avaliable    Int
+  percentage        Int
+  Investors         Int
+  start_date        DateTime @updatedAt
+  maturity_date     DateTime @updatedAt
+  is_Sold_out       Boolean  @default(false)
+  is_deleted        Boolean  @default(false)
+  date_created      DateTime @default(now())
+  date_updated      DateTime @updatedAt
+  farming           Farming  @relation(fields: [farming_id], references: [farming_id])
+}

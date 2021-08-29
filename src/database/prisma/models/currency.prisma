@@ -1,0 +1,10 @@
+model Currency {
+  currency_id   String   @id @default(uuid())
+  currency_type String
+  currency_name String
+  currency_code String
+  currency_icon String
+  is_deleted    Boolean  @default(false)
+  date_created  DateTime @default(now())
+  date_updated  DateTime @updatedAt
+}

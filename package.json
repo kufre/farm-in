@@ -7,7 +7,7 @@
         "start:dev": "nodemon",
         "build": "tsc",
         "start:prod": "node dist/src/server.js",
-        "start": "NODE_ENV=default node ./dist/src/server.js",
+        "start": "NODE_ENV=default node dist/src/server.js",
         "migration": "ts-node ./src/database/prisma/schema-generator.ts && npx prisma migrate dev --preview-feature",
         "prisma-push": "npx prisma db push --preview-feature"
     },

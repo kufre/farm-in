@@ -1,0 +1,91 @@
+<div class="main_content_iner ">
+    <div class="container-fluid p-0">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="QA_section">
+                    <div class="white_box_tittle list_header">
+                        <h4>Farming</h4>
+                        <div class="box_right d-flex lms_block">
+                            <div class="add_button ml-10">
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                              Add New
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="white_box mb_30 collapse" id="collapseExample">
+                        <form>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control name" placeholder="Farming Name">
+                                </div>
+                                <div class="col">
+                                    <select id="inputState" class="form-control duration">
+                                    <option selected>Choose Duration...</option>
+                                    <option value="4 months">4 months </option>
+                                    <option value="5 months">5 months </option>
+                                    <option value="6 months">6 months </option>
+                                    <option value="7 months">7 months </option>
+                                    <option value="8 months">8 months </option>
+                                    <option value="9 months">9 months </option>
+                                    <option value="10 months">10 months </option>
+                                    <option value="11 months">11 months </option>
+                                    <option value="12 months">12 months </option>
+                                  </select>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary createBtn" class="btn_1">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="white_box mb_30">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Farmings</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% locals.farmings.records.forEach(function(farm, index){%>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= index+1 %>
+                                        </th>
+                                        <td>
+                                            <%= farm.farming_name %>
+                                        </td>
+                                        <td>
+                                            <%= farm.farming_duration %>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Edit</button>
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+
+                                    <% });  %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav aria-label="Page navigation example mb_30">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

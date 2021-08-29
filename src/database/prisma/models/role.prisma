@@ -1,0 +1,8 @@
+model Role {
+  role_id      String   @id @default(uuid())
+  role_name    String
+  is_deleted   Boolean  @default(false)
+  date_created DateTime @default(now())
+  date_updated DateTime @updatedAt
+  users        User[]
+}

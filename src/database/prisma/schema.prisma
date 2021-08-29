@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Country {
+  country_id   String   @id @default(uuid())
+  country_name String
+  country_code String
+  is_deleted   Boolean  @default(false)
+  date_created DateTime @default(now())
+  date_updated DateTime @updatedAt
+  users        User[]
+}
+
+model Currency {
+  currency_id   String   @id @default(uuid())
+  currency_type String
+  currency_name String
+  currency_code String
+  currency_icon String
+  is_deleted    Boolean  @default(false)
+  date_created  DateTime @default(now())
+  date_updated  DateTime @updatedAt
+}
+
+model Farming {
+  farming_id       String       @id @default(uuid())
+  farming_name     String
+  farming_duration String
+  is_deleted       Boolean      @default(false)
+  date_created     DateTime     @default(now())
+  date_updated     DateTime     @updatedAt
+  investments      Investment[]
+}
+
+model Investment {
+  investment_id     String   @id @default(uuid())
+  farming_id        String
+  category          String
+  location          String
+  season            String
+  duration          String
+  unit_price        String
+  unit_price_string String
+  unit_avaliable    Int
+  percentage        Int
+  Investors         Int
+  start_date        DateTime @updatedAt
+  maturity_date     DateTime @updatedAt
+  is_Sold_out       Boolean  @default(false)
+  is_deleted        Boolean  @default(false)
+  date_created      DateTime @default(now())
+  date_updated      DateTime @updatedAt
+  farming           Farming  @relation(fields: [farming_id], references: [farming_id])
+}
+
+model Role {
+  role_id      String   @id @default(uuid())
+  role_name    String
+  is_deleted   Boolean  @default(false)
+  date_created DateTime @default(now())
+  date_updated DateTime @updatedAt
+  users        User[]
+}
+
+model User {
+  id                   String    @id @default(uuid())
+  first_name           String
+  last_name            String
+  email                String    @unique
+  phone                String?   @unique
+  is_active            Boolean   @default(false)
+  is_admin             Boolean   @default(false)
+  password             String
+  password_reset_token String?   @unique
+  activiation_token    String?   @unique
+  last_login           DateTime?
+  login_attempt        Int       @default(0)
+  date_created         DateTime  @default(now())
+  date_updated         DateTime  @updatedAt
+  role_id              String
+  country_id           String
+  role                 Role      @relation(fields: [role_id], references: [role_id])
+  country              Country   @relation(fields: [country_id], references: [country_id])
+}
