@@ -1,0 +1,60 @@
+{
+    "name": "planre",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start:dev": "nodemon",
+        "build": "tsc",
+        "start:prod": "node dist/src/server.js",
+        "start": "NODE_ENV=default node ./dist/src/server.js",
+        "migration": "ts-node ./src/database/prisma/schema-generator.ts && npx prisma migrate dev --preview-feature",
+        "prisma-push": "npx prisma db push --preview-feature"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
+        "@types/cookie-parser": "^1.4.2",
+        "@types/dotenv-safe": "^8.1.2",
+        "@types/express": "^4.17.13",
+        "@types/express-ejs-layouts": "^2.3.2",
+        "@types/glob": "^7.1.4",
+        "@types/helmet": "^4.0.0",
+        "@types/morgan": "^1.9.3",
+        "@types/node": "^16.4.6",
+        "@typescript-eslint/eslint-plugin": "^4.28.5",
+        "@typescript-eslint/parser": "^4.28.5",
+        "eslint": "^7.31.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-import-resolver-typescript": "^2.4.0",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-prettier": "^3.4.0",
+        "jshint": "^2.13.0",
+        "nodemon": "^2.0.12",
+        "prettier": "^2.3.2",
+        "prisma": "^2.28.0",
+        "ts-node": "^10.1.0",
+        "tsconfig-paths": "^3.10.1",
+        "typescript": "^4.3.5"
+    },
+    "dependencies": {
+        "@editorjs/editorjs": "^2.22.2",
+        "@prisma/client": "^2.28.0",
+        "bcrypt": "^5.0.1",
+        "cookie-parser": "^1.4.5",
+        "crypto": "^1.0.1",
+        "dayjs": "^1.10.6",
+        "dotenv": "^10.0.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "express-ejs-layouts": "^2.5.1",
+        "glob": "^7.1.7",
+        "helmet": "^4.6.0",
+        "joi": "^17.4.2",
+        "morgan": "^1.10.0",
+        "nodemailer": "^6.6.3"
+    },
+    "prisma": {
+        "schema": "./src/database/prisma/schema.prisma"
+    }
+}
